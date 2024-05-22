@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--基于注解的开发,添加包扫描-->
+    <!--    添加aspectJ框架-->
+    <!--    添加事务管理器
+           切记:配置数据源
+    -->
+<!--添加事务切面-->
+    <!--    绑定切入点和切面-->
+</beans>

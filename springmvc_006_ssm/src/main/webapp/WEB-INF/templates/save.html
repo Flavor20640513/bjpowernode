@@ -1,0 +1,57 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        a{
+            padding: 10px;
+        }
+        .active{
+            background-color: lightblue;
+        }
+        span{
+            padding: 60px 10px;
+        }
+
+    </style>
+</head>
+<body style="   background-color: lightgoldenrodyellow" >
+<center>
+  <div th:include="head.html"></div>
+  <div style="width: 100%;height: 500px"><br>
+      <center>
+<!--   String userId;
+       String cardType;
+       String cardNo;
+       String userName;
+       String userSex;
+       String userPass;-->
+          <br><br><br>
+          <h2>新增用户</h2>
+          <form action="/user/createUser">
+          证件类型:<select name="cardType">
+                  <option  value="身份证">身份证</option>
+                  <option  value="军官证">军官证</option>
+                  <option  value="护照">护照</option>
+                  <option  value="台湾往来大陆通行证">台湾往来大陆通行证</option>
+                  <option  value="港澳居民通行证">港澳居民通行证</option>
+      </select><br><br>
+          证件号码:<input type="text" name="cardNo"><br><br>
+          用户姓名:<input type="text" name="userName"> <br><br>
+          用戶密码:<input type="password" name="userPass"><br><br>
+              用户性别:<input type="radio" name="userSex" value="男">男
+                    <input type="radio" name="userSex" value="女">女
+              <br><br><br>
+              <input type="submit" value="增加">
+          </form>
+          <br><br>
+          <a th:href="@{'/user/selectUserPage?page=1'}">回到首页</a>
+      </center>
+  </div>
+
+  <div th:include="foot.html"></div>
+</center>
+</body>
+
+</html>

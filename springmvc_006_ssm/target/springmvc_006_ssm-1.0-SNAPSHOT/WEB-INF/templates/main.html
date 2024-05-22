@@ -1,0 +1,62 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        a{
+            padding: 10px;
+        }
+        .active{
+            background-color: lightblue;
+        }
+        span{
+            padding: 60px 10px;
+        }
+
+    </style>
+</head>
+<body style="   background-color: lightgoldenrodyellow" >
+<center>
+  <div th:include="head.html"></div>
+  <div style="width: 100%;height: 500px"><br>
+      <center>
+          <h2>客户信息</h2>
+          <table border="2" style="text-align: center;width: 650px;height: 200px">
+              <tr>
+                  <th>证件类型</th>
+                  <th>证件号码</th>
+                  <th>用户姓名</th>
+                  <th>用户性别</th>
+                  <th>操作</th>
+              </tr>
+              <tr th:each="u:${info.list}">
+                   <td th:text="${u.cardType}"></td>
+                   <td th:text="${u.cardNo}"></td>
+                   <td th:text="${u.userName}"></td>
+                   <td th:text="${u.userSex}"></td>
+                  <td ><a th:href="@{'/user/selectUserById?userId='+${u.userId}}">更新</a>&nbsp;&nbsp;
+                      <a onclick="return confirm('你确定删除吗?')" th:href="@{'/user/deleteUserById?userIda='+${u.userId}}">删除</a></td>
+              </tr>
+          </table><br><br>
+          <a th:href="@{'/user/selectUserPage?page=1'}">首页</a>
+          <a th:if="${info.hasPreviousPage}" th:href="@{'/user/selectUserPage?page='+${info.prePage}}">上一页</a>
+
+          <a th:each="i:${#numbers.sequence(1,info.pages)}"
+             th:href="@{'/user/selectUserPage?page='+${i}}"
+             th:class="${i==info.pageNum}?'active'">
+              [[${i}]]
+          </a>
+
+          <a th:if="${info.hasNextPage}" th:href="@{'/user/selectUserPage?page='+${info.nextPage}}">下一页</a>
+          <a th:href="@{'/user/selectUserPage?page='+${info.pages}}">末页</a>
+          <br><br><br>
+          <a th:href="@{'/user/showSave'}">新增用户</a>
+      </center>
+  </div>
+
+  <div th:include="foot.html"></div>
+</center>
+</body>
+
+</html>

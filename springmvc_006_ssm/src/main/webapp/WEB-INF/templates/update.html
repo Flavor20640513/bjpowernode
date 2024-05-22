@@ -1,0 +1,58 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        a{
+            padding: 10px;
+        }
+        .active{
+            background-color: lightblue;
+        }
+        span{
+            padding: 60px 10px;
+        }
+
+    </style>
+</head>
+<body style="   background-color: lightgoldenrodyellow" >
+<center>
+  <div th:include="head.html"></div>
+  <div style="width: 100%;height: 500px"><br>
+      <center>
+<!--  String userId;
+    String cardType;
+    String cardNo;
+    String userName;
+    String userSex;
+    String userPass;-->
+          <br><br><br>
+          <h2>更新用户</h2>
+          <form action="/user/updateUserById">
+          证件类型:<select name="cardType">
+              <option th:each="y:${list}"
+                      th:value="${y}"
+                      th:text="${y}"
+                      th:selected="${y==user.cardType}"></option>
+      </select><br><br>
+          证件号码:<input type="text" name="cardNo" th:value="${user.cardNo}"><br><br>
+          用户姓名:<input type="text" name="userName"  th:value="${user.userName}"> <br><br>
+          用戶密码:<input type="password" name="userPass" th:value="${user.userPass}"><br><br>
+              用户性别:<input type="radio" name="userSex" value="男" th:checked="${user.userSex}">男
+                    <input type="radio" name="userSex" value="女" th:checked="${user.userSex}">女
+              <br><br><br>
+              <input type="hidden" name="userId" th:value="${user.userId}">
+              <input type="submit" value="更新">
+
+          </form>
+          <br><br>
+          <a th:href="@{'/user/selectUserPage?page=1'}">回到首页</a>
+      </center>
+  </div>
+
+  <div th:include="foot.html"></div>
+</center>
+</body>
+
+</html>

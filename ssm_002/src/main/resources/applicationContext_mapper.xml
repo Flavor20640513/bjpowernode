@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    读取jdbc.properties文件-->
+<!--    创建数据源dataSource,进行数据库连接参数的设置-->
+    <!--    配置SqlSessionFactoryBean的工具类
+            1.配置数据源
+            2.配置SqlMapConfig.xml文件
+            3. 注册实体类别名
+    -->
+    <!--    配置mapper.mxl文件的扫描及动态代理对象的创建-->
+</beans>

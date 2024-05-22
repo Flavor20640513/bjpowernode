@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xcl.mapper.UserMapper">
+    <!--       String userId;
+    String cardType;
+    String cardNo;
+    String userName;
+    String userSex;
+    String userPass;-->
+  <resultMap id="sqlMap" type="user">
+      <id property="userId" column="user_id"></id>
+      <result property="cardType" column="card_type"></result>
+      <result property="cardNo" column="card_no"></result>
+      <result property="userName" column="user_name"></result>
+      <result property="userSex" column="user_sex"></result>
+      <result property="userPass" column="user_pass"></result>
+  </resultMap>
+    <sql id="allColumns">
+        user_id,card_type,card_no,user_name,user_sex,user_pass
+    </sql>
+    <select id="getNameAndPass" resultMap="sqlMap">
+        select  <include refid="allColumns"></include>
+        from user
+        where user_name=#{userName} and user_pass=${userPass}
+    </select>
+    <select id="selectUserPage" resultMap="sqlMap">
+        select  <include refid="allColumns"></include>
+        from user
+    </select>
+    <delete id="deleteUserById" parameterType="string">
+        delete from user where user_id=#{userId}
+    </delete>
+    <insert id="createUser" parameterType="user">
+        insert into user values(#{userId},#{cardType},#{cardNo},#{userName},#{userSex},#{userPass})
+    </insert>
+    <select id="selectUserById" resultMap="sqlMap" parameterType="string">
+        select  <include refid="allColumns"></include>
+        from user
+        where user_id=#{userId}
+    </select>
+    <update id="updateUserById" parameterType="user">
+        update user
+        <set>
+            <if test="cardType != null and cardType != ''">
+                card_type=#{cardType},
+            </if>
+            <if test="cardNo != null and cardNo != ''">
+                card_no=#{cardNo},
+            </if>
+            <if test="userName != null and userName != ''">
+                user_name=#{userName},
+            </if>
+            <if test="userSex != null and userSex != ''">
+                user_sex=#{userSex},
+            </if>
+            <if test="userPass != null and userPass != ''">
+                user_pass=#{userPass},
+            </if>
+        </set>
+        where user_id=#{userId}
+    </update>
+</mapper>

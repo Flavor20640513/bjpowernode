@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style type="text/css">
+    ul{list-style: none; margin-right: 150px; width:400px;}
+    li{
+      font-size: 22px;
+      margin: 22px 85px;
+      font-family: "黑体";
+      color: #505C68;
+    }
+  </style>
+</head>
+<body>
+<div id="title" style="padding-left: 50px; padding-top:20px; width: 100%; font-size: 20px; font-family: '黑体'; line-height: 60px; text-align: left;color: #555222;background-color:navajowhite;" >
+    <span style="font-size: 40px;padding-right: 10px; font-family: charcoal;">CRM</span>客户关系管理系统    <span style="padding-left: 1000px;font-size: 16px">欢迎</span><span style="font-size: 16px" th:text="${session.user.userName}"></span>
+</div>
+</body>
+</html>

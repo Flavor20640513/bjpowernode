@@ -1,0 +1,32 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        a{
+            padding: 10px;
+        }
+        .active{
+            background-color: lightblue;
+        }
+        span{
+            padding: 60px 10px;
+        }
+
+    </style>
+</head>
+<body style="   background-color: lightgoldenrodyellow" >
+<center>
+  <div th:include="head.html"></div>
+  <div style="width: 100%;height: 500px"><br>
+      <br><br><br>
+      <h2>页面出错了!!!!</h2><br><br><br><br><br><br><br><br><br><br>
+      <a th:href="@{'/user/selectUserPage?page=1'}">回到首页</a>
+  </div>
+
+  <div th:include="foot.html"></div>
+</center>
+</body>
+
+</html>
